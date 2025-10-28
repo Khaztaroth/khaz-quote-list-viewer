@@ -52,7 +52,6 @@ export class GridList extends LitElement {
   static styles = css`
     h2{
         text-align: center;
-        font-size: 2rem;
         margin-bottom: 2rem;
     }
     section {
@@ -130,14 +129,21 @@ export class GridList extends LitElement {
       }
     }
     @media (min-width: 0) {
+        h2{
+            font-size: 0.8rem;
+        }
       ul {
         column-count: 1;
       }
       li {
+          font-size: 0.6rem;
         width: 70%;
       }
     }
     @media (min-width: 420px) {
+        h2{
+            font-size: 1rem;
+        }
       ul {
         column-count: 1;
       }
@@ -146,6 +152,9 @@ export class GridList extends LitElement {
       }
     }
     @media (min-width: 820px) {
+        h2{
+            font-size: 1.6rem;
+        }
       ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -153,10 +162,14 @@ export class GridList extends LitElement {
         justify-content: space-between;
       }
       li {
+          font-size: 1.2rem;
         width: 95%;
       }
     }
     @media (min-width: 1200px) {
+        h2{
+            font-size: 2rem;
+        }
       ul {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -164,6 +177,7 @@ export class GridList extends LitElement {
           justify-content: space-between;
       }
       li {
+          font-size: 1.6rem;
         width: 90%;
       }
     }
