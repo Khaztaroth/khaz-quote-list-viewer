@@ -7,9 +7,9 @@ type QuoteList = {
 
 async function GetQuotes(channel: string) {
   const list = async () =>
-    await fetch(`http://127.0.0.1:8787/listquotes?channel=${channel}`).then(
-      (res) => res.json(),
-    );
+    await fetch(
+      `https://api.khaztaroth.com/listquotes?channel=${channel}`,
+    ).then((res) => res.json());
   const quotes: QuoteList = await list();
   return quotes;
 }
