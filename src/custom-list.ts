@@ -50,27 +50,17 @@ export class GridList extends LitElement {
   }
 
   static styles = css`
+    h2{
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 2rem;
+    }
     section {
-      margin: 10px;
-      top: 10px
-    }
-    @media (max-width: 480px) {
-      ul {
-        column-count: 1;
-      }
-    }
-    @media (min-width: 790px) {
-      ul {
-        column-count: 2;
-      }
-    }
-    @media (min-width: 1200px) {
-      ul {
-        column-count: 3;
-      }
+      margin: 1rem;
+      top: 1rem;
     }
     ul {
-      font-size: 1em;
+      font-size: 1.4rem;
       top: 0;
       left: 0;
       padding: 0;
@@ -78,32 +68,89 @@ export class GridList extends LitElement {
     }
     li {
       list-style-type: none;
+      break-inside: avoid-column;
+      width: 90%;
+      height: auto;
+
       background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.75),
-        rgba(0, 0, 0, 0.0)
+        rgba(0, 0, 0, 0)
       );
-      margin-top: 0px;
-      margin-bottom: 10px;
-      margin-left: 0px;
-      margin-right: auto;
-      padding: 15px;
+      padding: 0.6rem;
 
-      border: solid 2px;
+      border: solid 0.2rem;
       border-top: solid 0px;
       border-bottom: solid 0px;
-      border-image: linear-gradient(to bottom, rgba(163, 163, 163, 0.8), rgba(0, 0, 0, 0)) 1 100%;
-      inset: -5px;*/
-    }
-    li {
-      break-inside: avoid-column;
+      border-image: linear-gradient(
+          to top,
+          rgba(163, 163, 163, 0.8),
+          rgba(0, 0, 0, 0)
+        )
+        1 100%;
+      inset: -5px;
     }
     li:hover {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.75)
+      );
+    }
+    @media (prefers-color-scheme: light) {
+      li {
+        border-image: linear-gradient(
+            to bottom,
+            rgba(200, 200, 200, 2),
+            rgba(0, 0, 0, 0)
+          )
+          1 100%;
+        inset: -5px;
+
         background: linear-gradient(
           to top,
-          rgba(0, 0, 0, 0.75),
-          rgba(0, 0, 0, 0.75)
+          rgba(200, 200, 200, 0.6),
+          rgba(255, 255, 255, 0)
+          );
+            border-image: linear-gradient(
+              to bottom,
+              rgba(163, 163, 163, 0.4),
+              rgba(0, 0, 0, 0)
+            )
+            1 100%; inset: -5px;
         );
+      }
+      li:hover {
+        background: linear-gradient(
+          to top,
+          rgba(200, 200, 200, 0.6),
+          rgba(200, 200, 200, 0.6)
+        );
+      }
+    }
+    @media (max-width: 520px) {
+      ul {
+        column-count: 1;
+      }
+      li {
+        width: 90%;
+      }
+    }
+    @media (min-width: 790px) {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        justify-content: space-between;
+      }
+    }
+    @media (min-width: 1200px) {
+      ul {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 10px;
+          justify-content: space-between;
+      }
     }
   `;
 }
