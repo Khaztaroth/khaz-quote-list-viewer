@@ -52,7 +52,7 @@ export class GridList extends LitElement {
   static styles = css`
     h2{
         text-align: center;
-        font-size: 2em;
+        font-size: 2rem;
         margin-bottom: 2rem;
     }
     section {
@@ -69,15 +69,16 @@ export class GridList extends LitElement {
     li {
       list-style-type: none;
       break-inside: avoid-column;
-      width: 90%;
       height: auto;
+      width: auto;
+      margin: 0.2rem;
+      padding: 0.4rem;
 
       background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.75),
         rgba(0, 0, 0, 0)
       );
-      padding: 0.6rem;
 
       border: solid 0.2rem;
       border-top: solid 0px;
@@ -128,28 +129,42 @@ export class GridList extends LitElement {
         );
       }
     }
-    @media (max-width: 520px) {
+    @media (min-width: 0) {
       ul {
         column-count: 1;
       }
       li {
-        width: 90%;
+        width: 70%;
       }
     }
-    @media (min-width: 790px) {
+    @media (min-width: 420px) {
+      ul {
+        column-count: 1;
+      }
+      li {
+        width: 98%;
+      }
+    }
+    @media (min-width: 820px) {
       ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
+        grid-gap: 1rem;
         justify-content: space-between;
+      }
+      li {
+        width: 95%;
       }
     }
     @media (min-width: 1200px) {
       ul {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          grid-gap: 10px;
+          grid-gap: 1rem;
           justify-content: space-between;
+      }
+      li {
+        width: 90%;
       }
     }
   `;
